@@ -17,8 +17,8 @@ public class ClubeService {
         return clubeRepository.findAll();
     }
 
-    public void buscarClubePorNome(String clube){
-        clubeRepository.findClubeByNome(clube);
+    public Clube buscarClubePorNome(String clube){
+        return clubeRepository.findClubeByNome(clube);
     }
 
     public Optional<Clube> buscarClubePorId(Long id){

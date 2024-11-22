@@ -18,6 +18,12 @@ public class ClubeController {
     public List<Clube> listarClubes(){
         return clubeService.listarClubes();
     }
+
+    @GetMapping("/{nome}")
+    public Clube buscarPorNome(@Valid @PathVariable String nome){
+        return clubeService.buscarClubePorNome(nome);
+    }
+
     @PostMapping
     public void adicionarClube(@Valid @RequestBody Clube clube){
         clubeService.adicionarClube(clube);

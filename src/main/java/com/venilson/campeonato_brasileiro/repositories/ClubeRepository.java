@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ClubeRepository extends JpaRepository<Clube, Long> {
 
-    public void findClubeByNome(String name);
+    Clube findClubeByNome(String clube);
 }
