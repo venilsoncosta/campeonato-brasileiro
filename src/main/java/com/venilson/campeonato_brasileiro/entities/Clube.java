@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "clubes")
 @Getter
@@ -40,5 +42,8 @@ public class Clube {
 
     @NotNull
     private int saldoGols;
+
+    @OneToMany(mappedBy = "time")
+    private List<Jogador> jogadores;
 
 }
