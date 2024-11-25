@@ -1,5 +1,6 @@
 package com.venilson.campeonato_brasileiro.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -43,7 +44,8 @@ public class Clube {
     @NotNull
     private int saldoGols;
 
-    @OneToMany(mappedBy = "time")
+    @OneToMany(mappedBy = "time", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Jogador> jogadores;
 
 }
