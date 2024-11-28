@@ -48,4 +48,8 @@ public class Clube {
     @JsonManagedReference
     private List<Jogador> jogadores;
 
+    @ManyToOne
+    @JoinColumn(name = "campeonato_id")
+    private Campeonato campeonato;
+
 }

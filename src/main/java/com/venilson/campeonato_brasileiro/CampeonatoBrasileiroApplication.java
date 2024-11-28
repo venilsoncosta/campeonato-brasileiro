@@ -12,6 +12,7 @@ public class CampeonatoBrasileiroApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CampeonatoBrasileiroApplication.class, args);
+
 	}
 
 }
