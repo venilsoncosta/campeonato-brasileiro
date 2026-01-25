@@ -23,7 +23,7 @@ public class ClubeController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Clube criarClube(@RequestBody Clube clube) {
-        return clubeService.salvarClube(clube);
+        return clubeService.saveClube(clube);
     }
     
 }

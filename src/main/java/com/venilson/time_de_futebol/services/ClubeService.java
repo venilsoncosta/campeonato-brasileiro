@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.venilson.time_de_futebol.Repositories.ClubeRepository;
+import com.venilson.time_de_futebol.exceptions.ResourceNotFoundException;
 import com.venilson.time_de_futebol.models.Clube;
 
 @Service
@@ -17,27 +18,31 @@ public class ClubeService {
     }
 
 
-    public Clube salvarClube(Clube clube) {
+    public Clube saveClube(Clube clube) {
         return clubeRepository.save(clube);
     }
 
-    public Clube buscarClubePorId(Long id) {
-        return clubeRepository.findById(id).orElseThrow(() -> new RuntimeException("Clube não encontrado"));
+    public Clube findById(Long id) {
+        return clubeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Clube não encontrado"));
     }
 
-    public Clube findClubeByNome(String nome) {
+    public Clube findByNome(String nome) {
         return clubeRepository.findByNome(nome);
     }
 
-    public List<Clube> listarClubes() {
+    public List<Clube> findAllClubes() {
         return clubeRepository.findAll();
     }
 
-    public void deletarClube(Long id){
+    public void deleteClubeById(Long id){
+
+        if(!clubeRepository.existsById(id)){
+            throw new ResourceNotFoundException("Não foi possível deletar: Clube não encontrado");
+        }
         clubeRepository.deleteById(id);
     }
 
-    public void deletarClubePorNome(String nome) {
+    public void deleteClubeByNome(String nome) {
         clubeRepository.deleteByNome(nome);
     }
 }
