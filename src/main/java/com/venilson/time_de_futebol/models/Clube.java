@@ -24,4 +24,11 @@ public class Clube {
     private String nome;
     private String estadio;
 
+    private Integer pontos = 0;
+    private Integer vitorias = 0;
+    private Integer golsMarcados = 0;
+    private Integer derrotas = 0;
+    private Integer empates = 0;
+    private Integer golsSofridos = 0;
+
 }
