@@ -6,22 +6,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.venilson.time_de_futebol.Repositories.ClubeRepository;
-import com.venilson.time_de_futebol.models.Clube;
+import com.venilson.time_de_futebol.dto.ClubeDto;
+import com.venilson.time_de_futebol.services.ClubeService;
 
 @RestController
 @RequestMapping("/classificacao")
 public class ClassificacaoController {
     
-    private ClubeRepository clubeRepository;
+    private ClubeService clubeService;
 
-    public ClassificacaoController(ClubeRepository clubeRepository) {
-        this.clubeRepository = clubeRepository;
+    public ClassificacaoController(ClubeService clubeService) {
+        this.clubeService = clubeService;
     }
 
     @GetMapping
-    public List<Clube> getTabela() {
-        return clubeRepository.findAllByOrderByPontosDescVitoriasDescGolsMarcadosDesc();
+    public List<ClubeDto> getTabela() {
+        return clubeService.getClassificacao();
     }
 
 }
