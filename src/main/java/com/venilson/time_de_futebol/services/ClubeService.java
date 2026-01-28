@@ -17,6 +17,10 @@ public class ClubeService {
         this.clubeRepository = clubeRepository;
     }
 
+    public List<Clube> saveAllClubes(List<Clube> clubes) {
+        return clubeRepository.saveAll(clubes);
+    }
+
 
     public Clube saveClube(Clube clube) {
         return clubeRepository.save(clube);

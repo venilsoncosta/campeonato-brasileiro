@@ -11,7 +11,7 @@
 	<groupId>com.venilson</groupId>
 	<artifactId>time-de-futebol</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>time-de-futebol</name>
+	<name>campeonato-brasileiro</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
